@@ -15,8 +15,12 @@ export class ServiciosService {
     return this.http.get<Servicio[]>(this.baseUrl + '/' + id);
   }
 
-  getServiceByServiceId(id: string) {
+  getServiceByShopId(id: string) {
     return this.http.get(this.baseUrl + '/' + id);
+  }
+
+  getServiceByServiceId(id: string) {
+    return this.http.get(this.baseUrl + '/s/' + id);
   }
 
   postService(model: any) {

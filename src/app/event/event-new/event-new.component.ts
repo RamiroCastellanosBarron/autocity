@@ -1,7 +1,9 @@
+import { FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CitasService } from './../../services/citas.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-event-new',
@@ -9,6 +11,11 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./event-new.component.css']
 })
 export class EventNewComponent implements OnInit {
+
+  colorTheme = 'theme-dark-blue';
+
+  bsConfig?: Partial<BsDatepickerConfig>;
+
   model: any = {};
 
   constructor(private citaService: CitasService,
@@ -18,8 +25,10 @@ export class EventNewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.bsConfig = Object.assign({}, { containerClass: this.colorTheme });
   }
+
+
 
   addEvent() {
     this.citaService.postCita(this.model).subscribe(response => {

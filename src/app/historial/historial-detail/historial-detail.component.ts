@@ -1,3 +1,4 @@
+import { CarService } from './../../services/car.service';
 import { ToastrService } from 'ngx-toastr';
 import { HistorialService } from './../../services/historial.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,19 +13,43 @@ import { Car } from 'src/app/models/car.model';
 })
 export class HistorialDetailComponent implements OnInit {
   model: any;
+  singleCar: any = {};
 
-  constructor(private historialService:HistorialService, private toastr: ToastrService, private route: ActivatedRoute, private router:Router) { }
+  constructor(
+    private historialService: HistorialService,
+    private toastr: ToastrService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private carService: CarService
+    ) { }
 
   ngOnInit(): void {
-    this.mostrarHistoriales();
+    this.getCarHistoryByCarId();
+    this.getCurrentCar();
   }
 
-  mostrarHistoriales(){
-    this.historialService.getCarHistory(this.route.snapshot.paramMap.get('id')).subscribe(response => {
-      console.log(response);
+  getCarHistoryByCarId() {
+    this.historialService.getCitasByCarId(this.route.snapshot.paramMap.get('id')).subscribe(response => {
       this.model = response;
+      console.log(response);
+     }, error => {
+      console.log(error);
     })
   }
+
+  getCurrentCar() {
+    this.carService.getOneCar(this.route.snapshot.paramMap.get('id')).subscribe(response => {
+      this.singleCar = response;
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  goBack(id: string){
+    
+  }
+
+
 
 
 

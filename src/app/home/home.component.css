@@ -1,0 +1,22 @@
+html, body {
+  overflow: hidden !important;
+}
+
+#map {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin-left: -18vw;
+  margin-top: -10vh;
+}
+
+#tarjeta {
+  margin-left: -16vw;
+  margin-top: -2vh;
+  height: 850px !important;
+  width: 400px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+

@@ -1,7 +1,6 @@
+import { CustomerService } from './../../services/customer.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/models/car.model';
-import { CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -9,19 +8,21 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-  carros: Car[];
-  model: any = {};
+  customers: any;
 
-  constructor(private carService: CarService, private toastr:ToastrService) { }
+  constructor(
+    private customersService: CustomerService,
+    private toastr:ToastrService,
+    ) { }
 
   ngOnInit(): void {
     this.showAllCustomers();
   }
 
   showAllCustomers(){
-    this.carService.getAllCars().subscribe(response => {
+    this.customersService.getAllCustomers().subscribe(response => {
+      this.customers = response;
       console.log(response);
-      this.carros = response;
     }, error => {
       console.log(error);
     })

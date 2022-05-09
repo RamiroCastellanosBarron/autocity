@@ -1,43 +1,119 @@
-<h1 class="text-center">Nuevo Carro</h1>
-
 <form #form="ngForm" (ngSubmit)="addCar()">
-  <div class="container">
-    <input
-      class="form-control shadow-sm mt-3"
-      type="text"
-      name="customerId"
-      autocomplete="off"
-      [(ngModel)]="model.customerId"
-      placeholder="Customer Id"
-    />
-
-    <input
-      class="form-control shadow-sm mt-3"
-      type="text"
-      name="brand"
-      autocomplete="off"
-      [(ngModel)]="model.brand"
-      placeholder="Brand"
-    />
-
-    <input
-      class="form-control shadow-sm mt-3"
-      type="text"
-      name="model"
-      autocomplete="off"
-      [(ngModel)]="model.model"
-      placeholder="Model"
-    />
-
-    <input
-      class="form-control shadow-sm mt-3"
-      type="text"
-      name="year"
-      autocomplete="off"
-      [(ngModel)]="model.year"
-      placeholder="Year"
-    />
+  <div class="card shadow-sm">
+    <div class="card-header text-center">Add a new vehicle</div>
+    <div class="card-body">
+      <div class="row">
+        <label
+          for="customerId"
+          class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Owner Id</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="customerId"
+              autocomplete="off"
+              [(ngModel)]="model.customerId"
+              placeholder="000"
+            />
+          </div>
+        </div>
+        <label for="brand" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Brand</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="brand"
+              autocomplete="off"
+              [(ngModel)]="model.brand"
+              placeholder="Toyota, Mercedes, Nissan"
+            />
+          </div>
+        </div>
+        <label for="model" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Model</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="model"
+              autocomplete="off"
+              [(ngModel)]="model.model"
+              placeholder="SLS Turbo AMG"
+            />
+          </div>
+        </div>
+        <label for="year" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Year</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="year"
+              autocomplete="off"
+              [(ngModel)]="model.year"
+              placeholder="2015"
+            />
+          </div>
+        </div>
+        <label for="niv" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >NIV</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="NIV"
+              autocomplete="off"
+              [(ngModel)]="model.niv"
+              placeholder="NIV"
+            />
+          </div>
+        </div>
+        <label for="color" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Color</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="color"
+              autocomplete="off"
+              [(ngModel)]="model.color"
+              placeholder="Blue oxford"
+            />
+          </div>
+        </div>
+        <label for="imageUrl" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >imageUrl</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="imageUrl"
+              autocomplete="off"
+              [(ngModel)]="model.imageUrl"
+              placeholder="www.google.com/photos-vehicle"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-outline-success shadow-sm">Add vehicle</button>
+    </div>
   </div>
-
-  <button class="btn btn-success shadow-sm me-2 mt-3">Add car</button>
 </form>

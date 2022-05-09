@@ -1,12 +1,14 @@
+import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { BusyService } from './services/busy.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CarListComponent } from './cars/car-list/car-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { MatTableModule } from '@angular/material/table';
@@ -33,6 +35,11 @@ import { CustomerNewComponent } from './customer/customer-new/customer-new.compo
 import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import { EventEditComponent } from './event/event-edit/event-edit.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DateInputComponent } from './_forms/date-input/date-input.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { ReviewNewComponent } from './reviews/review-new/review-new.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +65,9 @@ import { EventEditComponent } from './event/event-edit/event-edit.component';
     CustomerEditComponent,
     EventDetailComponent,
     EventEditComponent,
+    DateInputComponent,
+    TextInputComponent,
+    ReviewNewComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,9 +82,15 @@ import { EventEditComponent } from './event/event-edit/event-edit.component';
       positionClass: 'toast-bottom-right'
     }),
     TabsModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    NgxSpinnerModule,
+    BsDatepickerModule.forRoot(),
+    ReactiveFormsModule,
+
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

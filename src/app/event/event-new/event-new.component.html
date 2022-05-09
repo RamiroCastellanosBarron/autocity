@@ -1,76 +1,81 @@
-<h2 class="text-center">Cita nueva</h2>
-<form #form="ngForm" (ngSubmit)="addEvent()">
-  <div class="form-group row">
-    <label for="name" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >Name</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="name"
-        autocomplete="off"
-        [(ngModel)]="model.name"
-        placeholder="Name"
-      />
-    </div>
+<form #form="ngForm" (ngSubmit)="addEvent()" autocomplete="off">
+  <div class="card shadow-sm">
+    <div class="card-header text-center">New event</div>
+    <div class="card-body">
+      <div class="row">
+        <label for="name" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Name</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="name"
+              autocomplete="off"
+              [(ngModel)]="model.name"
+              placeholder="Name"
+            />
+          </div>
+        </div>
 
-    <label for="date" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >Date</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="date"
-        autocomplete="off"
-        [(ngModel)]="model.date"
-        placeholder="Date"
-      />
-    </div>
+        <label for="date" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Date</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="date"
+              autocomplete="off"
+              [(ngModel)]="model.date"
+              placeholder="Date"
+              bsDatepicker
+              [bsConfig]="{isAnimated: true}"
+              [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}"
+              [bsConfig]="bsConfig"
+            />
+          </div>
+        </div>
 
-    <label for="time" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >Time</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="time"
-        autocomplete="off"
-        [(ngModel)]="model.time"
-        placeholder="Time"
-      />
-    </div>
+        <label for="shopId" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Servicio Id</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="servicioId"
+              autocomplete="off"
+              [(ngModel)]="model.servicioId"
+              placeholder="Servicio Id"
+            />
+          </div>
+        </div>
 
-    <label for="carId" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >Car Id</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="carId"
-        autocomplete="off"
-        [(ngModel)]="model.carId"
-        placeholder="Car Id"
-      />
+        <label for="carId" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Car Id</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="carId"
+              autocomplete="off"
+              [(ngModel)]="model.carId"
+              placeholder="Car Id"
+            />
+          </div>
+        </div>
+      </div>
     </div>
-
-    <label for="shopId" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >Servicio Id</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="servicioId"
-        autocomplete="off"
-        [(ngModel)]="model.servicioId"
-        placeholder="Servicio Id"
-      />
+    <div class="card-footer">
+      <button class="btn btn-outline-success shadow-sm">
+        Schedule new appointment
+      </button>
     </div>
   </div>
-
-  <button class="btn btn-success shadow-sm me-2">Agendar cita</button>
 </form>

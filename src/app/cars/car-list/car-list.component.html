@@ -1,39 +1,30 @@
-<h2>Car panel</h2>
-
-<div class="tab-panel shadow-sm">
-  <tabset class="member-tabset">
-    <tab heading="Car management">
-      <div class="container">
-        <div class="row">
-          <table class="table">
-            <tr>
-              <th style="width: 10%">Id</th>
-              <th style="width: 20%">Owner</th>
-              <th style="width: 20%">Brand</th>
-              <th style="width: 20%">Model</th>
-              <th style="width: 10%">Year</th>
-              <th style="width: 10%">
-              </th>
-            </tr>
-            <tr *ngFor="let item of carros">
-              <td>{{ item.id }}</td>
-              <td>{{ item.customer.name }}</td>
-              <td>{{ item.brand }}</td>
-              <td>{{ item.model }}</td>
-              <td>{{ item.year }}</td>
-              <td>
-                <a routerLink="/Cars/{{item.id}}">
-                  <button class="btn btn-info shadow-sm">Ir</button>
-                </a>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </tab>
-  </tabset>
+<div class="card shadow-sm">
+  <div class="card-header text-center">Vehicles</div>
+  <div class="card-body p-0">
+    <table class="table table-striped table-hover mb-0">
+      <thead>
+        <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Owner</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Model</th>
+        <th scope="col">Year</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of carros" routerLink="/Cars/{{car.id}}" style="cursor:pointer">
+        <td>{{ car.id }}</td>
+        <td>{{ car.customer.name }}</td>
+        <td>{{ car.brand }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.year }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <a routerLink="/Car/New">
+      <button class="btn btn-outline-success shadow-sm">Add new car</button>
+    </a>
+  </div>
 </div>
-
-<a routerLink="/Car/New">
-  <button class="btn btn-success shadow mt-2">Agregar Carro</button>
-</a>

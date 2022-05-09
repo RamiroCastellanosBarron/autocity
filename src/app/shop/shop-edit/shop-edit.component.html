@@ -1,94 +1,283 @@
-<h2 class="text-center">Editar taller</h2>
-<form #form="ngForm" (ngSubmit)="updateShop(shop)">
-  <div class="form-group row">
-    <label for="id" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >Id</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="id"
-        autocomplete="off"
-        [(ngModel)]="shop.id"
-        placeholder="Id"
-        disabled
-      />
+<form #form="ngForm" (ngSubmit)="updateShop(shop)" autocomplete="off">
+  <div class="card shadow-sm">
+    <div class="card-header text-center">Edit Store</div>
+    <div class="card-body">
+      <div class="row">
+        <label for="id" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Id</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="id"
+              autocomplete="off"
+              [(ngModel)]="shop.id"
+              placeholder="Id"
+              disabled
+            />
+          </div>
+        </div>
+
+        <label for="name" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Name</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="Name"
+              autocomplete="off"
+              [(ngModel)]="shop.name"
+              placeholder="Name"
+            />
+          </div>
+        </div>
+
+        <label for="rating" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Rating</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="rating"
+              autocomplete="off"
+              [(ngModel)]="shop.rating"
+              placeholder="Rating"
+            />
+          </div>
+        </div>
+
+        <label
+          for="longitude"
+          class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Longitude</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="longitude"
+              autocomplete="off"
+              [(ngModel)]="shop.longitude"
+              placeholder="Longitude"
+            />
+          </div>
+        </div>
+
+        <label for="latitude" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Latitude</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="latitude"
+              autocomplete="off"
+              [(ngModel)]="shop.latitude"
+              placeholder="Latitude"
+            />
+          </div>
+        </div>
+
+        <label for="imageUrl" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Image Url</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="imageUrl"
+              autocomplete="off"
+              [(ngModel)]="shop.imageUrl"
+              placeholder="Image Url"
+            />
+          </div>
+        </div>
+
+        <label
+          for="telephone"
+          class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Telephone</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="telephone"
+              autocomplete="off"
+              [(ngModel)]="shop.telephone"
+              placeholder="Telephone"
+            />
+          </div>
+        </div>
+        <label for="webUrl" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Website Url</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="webUrl"
+              autocomplete="off"
+              [(ngModel)]="shop.webUrl"
+              placeholder="Website Url"
+            />
+          </div>
+        </div>
+        <label for="email" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Email</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="email"
+              autocomplete="off"
+              [(ngModel)]="shop.email"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+        <label for="street" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Street</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="street"
+              autocomplete="off"
+              [(ngModel)]="shop.calle"
+              placeholder="Street"
+            />
+          </div>
+        </div>
+        <label for="number" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Number</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="number"
+              autocomplete="off"
+              [(ngModel)]="shop.numero"
+              placeholder="Number"
+            />
+          </div>
+        </div>
+        <label
+          for="codigoPostal"
+          class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Zip Code</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="codigoPostal"
+              autocomplete="off"
+              [(ngModel)]="shop.codigoPostal"
+              placeholder="Zip Code"
+            />
+          </div>
+        </div>
+        <label for="colonia" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Neighborhood</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="colonia"
+              autocomplete="off"
+              [(ngModel)]="shop.colonia"
+              placeholder="Neighborhood"
+            />
+          </div>
+        </div>
+        <label
+          for="municipio"
+          class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >City</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="municipio"
+              autocomplete="off"
+              [(ngModel)]="shop.municipio"
+              placeholder="City"
+            />
+          </div>
+        </div>
+        <label for="state" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >State</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="state"
+              autocomplete="off"
+              [(ngModel)]="shop.estado"
+              placeholder="State"
+            />
+          </div>
+        </div>
+        <label for="country" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Country</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="country"
+              autocomplete="off"
+              [(ngModel)]="shop.pais"
+              placeholder="Country"
+            />
+          </div>
+        </div>
+        <label for="bio" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Bio</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <textarea
+              name="bio"
+              [(ngModel)]="shop.bio"
+              rows="5"
+              class="form-control shadow-sm my-2"
+            ></textarea>
+          </div>
+        </div>
+
+        
+
+      </div>
     </div>
-
-    <label for="name" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >Name</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="Name"
-        autocomplete="off"
-        [(ngModel)]="shop.name"
-        placeholder="Name"
-      />
+    <div class="card-footer">
+      <button class="btn btn-outline-success shadow-sm me-2">Update</button>
     </div>
-
-    <label for="address" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >Address</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="address"
-        autocomplete="off"
-        [(ngModel)]="shop.address"
-        placeholder="Address"
-      />
-    </div>
-
-    <label for="rating" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >Rating</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="rating"
-        autocomplete="off"
-        [(ngModel)]="shop.rating"
-        placeholder="Rating"
-      />
-    </div>
-
-    <label for="longitude" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >longitude</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="longitude"
-        autocomplete="off"
-        [(ngModel)]="shop.longitude"
-        placeholder="longitude"
-      />
-    </div>
-
-    <label for="latitude" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >latitude</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="latitude"
-        autocomplete="off"
-        [(ngModel)]="shop.latitude"
-        placeholder="latitude"
-      />
-    </div>
-
-
   </div>
-
-  <button class="btn btn-success shadow me-2">Update</button>
-
 </form>

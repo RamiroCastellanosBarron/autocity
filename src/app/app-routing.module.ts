@@ -1,3 +1,5 @@
+import { HomeComponent } from './home/home.component';
+import { ReviewNewComponent } from './reviews/review-new/review-new.component';
 import { EventEditComponent } from './event/event-edit/event-edit.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import { CustomerDetailComponent } from './customer/customer-detail/customer-detail.component';
@@ -47,6 +49,10 @@ const routes: Routes = [
   {path: 'Customer/New', component: CustomerNewComponent},
   {path: 'Customer/Edit/:id', component: CustomerEditComponent},
   {path: 'Customer/:id', component: CustomerDetailComponent},
+
+  {path: 'Review/New', component: ReviewNewComponent},
+
+  {path: '', component: HomeComponent},
 ];
 
 @NgModule({

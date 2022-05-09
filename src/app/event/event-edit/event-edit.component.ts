@@ -1,8 +1,10 @@
+import { NgControl, ControlValueAccessor } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Self } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CitaUpdate } from 'src/app/models/citatoupdate.model';
 import { CitasService } from 'src/app/services/citas.service';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-event-edit',
@@ -10,6 +12,10 @@ import { CitasService } from 'src/app/services/citas.service';
   styleUrls: ['./event-edit.component.css']
 })
 export class EventEditComponent implements OnInit {
+
+  colorTheme = 'theme-dark-blue';
+
+  bsConfig?: Partial<BsDatepickerConfig>;
 
   model: any = {};
   eventId: number;
@@ -26,11 +32,15 @@ export class EventEditComponent implements OnInit {
     private citaService: CitasService,
     private route: ActivatedRoute,
     private toastr: ToastrService,
-    private router: Router
-  ) { }
+    private router: Router,
+
+  ) {}
+
+
 
   ngOnInit(): void {
     this.loadSingleCita();
+    this.bsConfig = Object.assign({}, { containerClass: this.colorTheme });
   }
 
   loadSingleCita() {

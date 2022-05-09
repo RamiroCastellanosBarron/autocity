@@ -1,259 +1,325 @@
-<h2 class="text-center">Detalle de la cita</h2>
+<div class="card shadow-sm">
+  <div class="card-header text-center">Appointment information</div>
+  <div class="card-body">
+    <div class="row">
+      <label for="id" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Id</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="id"
+            autocomplete="off"
+            [(ngModel)]="model.id"
+            placeholder="Id"
+            disabled
+          />
+        </div>
+      </div>
+      <label for="name" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Name</label
+      >
 
-<form>
-  <div class="form-group row">
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="name"
+            autocomplete="off"
+            [(ngModel)]="model.name"
+            placeholder="Name"
+            disabled
+          />
+        </div>
+      </div>
 
-    <label for="id" class="col-sm-2 col-form-label text-end mt-2 mb-2">Id</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="id"
-      autocomplete="off"
-      [(ngModel)]="model.id"
-      placeholder="Id"
-      disabled
-      />
+      <label for="date" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Date</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="date"
+            autocomplete="off"
+            [(ngModel)]="model.date"
+            placeholder="Date"
+            disabled
+            bsDatepicker
+            [bsConfig]="{ isAnimated: true }"
+            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+          />
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="card-header text-center">Service & Provider</div>
+  <div class="card-body">
+    <div class="row">
+      <label for="serviceId" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Service Id</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="serviceId"
+            autocomplete="off"
+            [(ngModel)]="model.servicio.id"
+            placeholder="Service Id"
+            disabled
+          />
+        </div>
+      </div>
+      <label
+        for="serviceName"
+        class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Service name</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="serviceName"
+            autocomplete="off"
+            [(ngModel)]="model.servicio.name"
+            placeholder="Service name"
+            disabled
+          />
+        </div>
+      </div>
+      <label
+        for="serviceDescription"
+        class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Description</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="serviceDescription"
+            autocomplete="off"
+            [(ngModel)]="model.servicio.description"
+            placeholder="Description"
+            disabled
+          />
+        </div>
+      </div>
 
-    <label for="name" class="col-sm-2 col-form-label text-end mt-2 mb-2">Name</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="name"
-      autocomplete="off"
-      [(ngModel)]="model.name"
-      placeholder="Name"
-      disabled
-      />
+      <label for="price" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Price</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="price"
+            autocomplete="off"
+            [(ngModel)]="model.servicio.price"
+            placeholder="Price"
+            disabled
+          />
+        </div>
+      </div>
+      <label for="shopId" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Shop Id</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="shopId"
+            autocomplete="off"
+            [(ngModel)]="model.servicio.shop.id"
+            Address
+            placeholder="Shop Id"
+            disabled
+          />
+        </div>
+      </div>
+      <label for="shopName" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Shop name</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="shopName"
+            autocomplete="off"
+            [(ngModel)]="model.servicio.shop.name"
+            placeholder="Shop name"
+            disabled
+          />
+        </div>
+      </div>
+
+      <label
+        for="shopAddress"
+        class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Location</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="shopAddress"
+            autocomplete="off"
+            [(ngModel)]="model.servicio.shop.address"
+            placeholder="Location"
+            disabled
+          />
+        </div>
+      </div>
+
+      <label for="shopRating" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Rating</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="shopRating"
+            autocomplete="off"
+            [(ngModel)]="model.servicio.shop.rating"
+            placeholder="Rating"
+            disabled
+          />
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="card-header text-center">Car & Owner Information</div>
+  <div class="card-body">
+    <div class="row">
+      <label for="carId" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Car Id</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="carId"
+            autocomplete="off"
+            [(ngModel)]="model.car.id"
+            placeholder="Car Id"
+            disabled
+          />
+        </div>
+      </div>
 
-    <label for="date" class="col-sm-2 col-form-label text-end mt-2 mb-2">Date</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="date"
-      autocomplete="off"
-      [(ngModel)]="model.date"
-      placeholder="Date"
-      disabled
-      />
+      <label for="carBrand" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Brand</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="carBrand"
+            autocomplete="off"
+            [(ngModel)]="model.car.brand"
+            placeholder="Brand"
+            disabled
+          />
+        </div>
+      </div>
+
+      <label for="carModel" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Model</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="carModel"
+            autocomplete="off"
+            [(ngModel)]="model.car.model"
+            placeholder="Model"
+            disabled
+          />
+        </div>
+      </div>
+      <label for="carYear" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Year</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="carYear"
+            autocomplete="off"
+            [(ngModel)]="model.car.year"
+            placeholder="Year"
+            disabled
+          />
+        </div>
+      </div>
+
+      <label for="customerId" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Car Owner Id</label
+      >
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="customerId"
+            autocomplete="off"
+            [(ngModel)]="model.car.customer.id"
+            placeholder="Id"
+            disabled
+          />
+        </div>
+      </div>
+
+      <label
+        for="customerName"
+        class="col-sm-2 col-form-label text-end mt-2 mb-2"
+        >Owner name</label
+      >
+
+      <div class="col-4">
+        <div class="col-sm-10 mt-2 mb-2">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="customerName"
+            autocomplete="off"
+            [(ngModel)]="model.car.customer.name"
+            placeholder="Name"
+            disabled
+          />
+        </div>
+      </div>
     </div>
-
-    <label for="time" class="col-sm-2 col-form-label text-end mt-2 mb-2">Time</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="time"
-      autocomplete="off"
-      [(ngModel)]="model.time"
-      placeholder="Time"
-      disabled
-      />
-    </div>
-
-    <h3 class="text-center">Servicio</h3>
-
-    <label for="serviceId" class="col-sm-2 col-form-label text-end mt-2 mb-2">Id</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="serviceId"
-      autocomplete="off"
-      [(ngModel)]="model.servicio.id"
-      placeholder="Id"
-      disabled
-      />
-    </div>
-
-    <label for="serviceName" class="col-sm-2 col-form-label text-end mt-2 mb-2">Name</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="serviceName"
-      autocomplete="off"
-      [(ngModel)]="model.servicio.name"
-      placeholder="Name"
-      disabled
-      />
-    </div>
-
-    <label for="serviceDescription" class="col-sm-2 col-form-label text-end mt-2 mb-2">Description</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="serviceDescription"
-      autocomplete="off"
-      [(ngModel)]="model.servicio.description"
-      placeholder="Description"
-      disabled
-      />
-    </div>
-
-    <label for="price" class="col-sm-2 col-form-label text-end mt-2 mb-2">Price</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="price"
-      autocomplete="off"
-      [(ngModel)]="model.servicio.price"
-      placeholder="Price"
-      disabled
-      />
-    </div>
-
-    <h3 class="text-center">Taller</h3>
-
-    <label for="shopId" class="col-sm-2 col-form-label text-end mt-2 mb-2">Id</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="shopId"
-      autocomplete="off"
-      [(ngModel)]="model.servicio.shop.id"Address
-      placeholder="Id"
-      disabled
-      />
-    </div>
-
-    <label for="shopName" class="col-sm-2 col-form-label text-end mt-2 mb-2">Name</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="shopName"
-      autocomplete="off"
-      [(ngModel)]="model.servicio.shop.name"
-      placeholder="Name"
-      disabled
-      />
-    </div>
-
-    <label for="shopAddress" class="col-sm-2 col-form-label text-end mt-2 mb-2">Address</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="shopAddress"
-      autocomplete="off"
-      [(ngModel)]="model.servicio.shop.address"
-      placeholder="Address"
-      disabled
-      />
-    </div>
-
-    <label for="shopRating" class="col-sm-2 col-form-label text-end mt-2 mb-2">Rating</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="shopRating"
-      autocomplete="off"
-      [(ngModel)]="model.servicio.shop.rating"
-      placeholder="Rating"
-      disabled
-      />
-    </div>
-
-    <h3 class="text-center">Vehículo</h3>
-
-    <label for="carId" class="col-sm-2 col-form-label text-end mt-2 mb-2">Id</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="carId"
-      autocomplete="off"
-      [(ngModel)]="model.car.id"
-      placeholder="Id"
-      disabled
-      />
-    </div>
-
-    <label for="carBrand" class="col-sm-2 col-form-label text-end mt-2 mb-2">Brand</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="carBrand"
-      autocomplete="off"
-      [(ngModel)]="model.car.brand"
-      placeholder="Brand"
-      disabled
-      />
-    </div>
-
-    <label for="carModel" class="col-sm-2 col-form-label text-end mt-2 mb-2">Model</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="carModel"
-      autocomplete="off"
-      [(ngModel)]="model.car.model"
-      placeholder="Model"
-      disabled
-      />
-    </div>
-
-    <label for="carYear" class="col-sm-2 col-form-label text-end mt-2 mb-2">Year</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="carYear"
-      autocomplete="off"
-      [(ngModel)]="model.car.year"
-      placeholder="Year"
-      disabled
-      />
-    </div>
-
-    <h3 class="text-center">Cliente</h3>
-
-    <label for="customerId" class="col-sm-2 col-form-label text-end mt-2 mb-2">Id</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="customerId"
-      autocomplete="off"
-      [(ngModel)]="model.car.customer.id"
-      placeholder="Id"
-      disabled
-      />
-    </div>
-
-    <label for="customerName" class="col-sm-2 col-form-label text-end mt-2 mb-2">Name</label>
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-      class="form-control shadow-sm"
-      type="text"
-      name="customerName"
-      autocomplete="off"
-      [(ngModel)]="model.car.customer.name"
-      placeholder="Name"
-      disabled
-      />
-    </div>
-
-
-<div class="container mt-3 mb-5">
-  <a routerLink="/Events">
-    <button class="btn btn-secondary shadow me-2">Back</button>
-  </a>
-  <a routerLink="/Event/Edit/{{ eventId }}">
-    <button class="btn btn-info shadow me-2">Editar</button>
-  </a>
-  <button class="btn btn-danger shadow me-2" (click)="borrar(model.id)">
-    Borrar
-  </button>
+  </div>
+  <div class="card-footer">
+    <a routerLink="/Events">
+      <button class="btn btn-outline-secondary shadow-sm me-2">Back</button>
+    </a>
+    <a routerLink="/Event/Edit/{{ eventId }}">
+      <button class="btn btn-outline-info shadow-sm me-2">Edit</button>
+    </a>
+    <button
+      class="btn btn-outline-danger shadow-sm me-2"
+      (click)="borrar(model.id)"
+    >
+      Delete
+    </button>
+  </div>
 </div>

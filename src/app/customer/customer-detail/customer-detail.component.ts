@@ -1,3 +1,4 @@
+import { CustomerService } from './../../services/customer.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -9,34 +10,45 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./customer-detail.component.css']
 })
 export class CustomerDetailComponent implements OnInit {
-
   model: any = {};
+  cars: any;
 
-  constructor(private carService: CarService, private toastr: ToastrService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private customersService: CustomerService,
+    private carService: CarService,
+    private toastr: ToastrService,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
     this.showCustomer();
+    this.loadCustomerCars();
   }
 
   showCustomer() {
-    this.carService.getOneCar(this.route.snapshot.paramMap.get('id')).subscribe(response => {
-      console.log(response);
+    this.customersService.getOneCustomerById(this.route.snapshot.paramMap.get('id')).subscribe(response => {
       this.model = response;
+      console.log(response);
     }, error => {
       console.log(error);
-      this.toastr.error('An error occurred');
     })
   }
 
-  borrar(id: string) {
-    this.carService.deleteCar(id).subscribe(response => {
-      this.toastr.success('Customer deleted successfully');
+  loadCustomerCars() {
+    this.carService.getCarsByCustomerId(this.route.snapshot.paramMap.get('id')).subscribe(response => {
+      this.cars = response;
       console.log(response);
-      this.router.navigateByUrl('/Customers');
     }, error => {
       console.log(error);
-      this.toastr.error('An error occurred');
     })
+  }
+
+
+
+
+  borrar(id: string) {
+
   }
 
 }

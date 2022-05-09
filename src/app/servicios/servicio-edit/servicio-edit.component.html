@@ -1,64 +1,94 @@
-<h1 class="text-center" style="margin-bottom: 100px">Edit service</h1>
-<form #form="ngForm" (ngSubmit)="updateService(model)">
-  <div class="form-group row">
-    <label for="id" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >id</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="id"
-        autocomplete="off"
-        [(ngModel)]="model.id"
-        placeholder="id"
-        disabled
-      />
-    </div>
+<form #form="ngForm" (ngSubmit)="updateService(servicio)">
+  <div class="card shadow-sm">
+    <div class="card-header text-center">Edit service information</div>
+    <div class="card-body">
+      <div class="row">
+        <label for="id" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Service Id</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="id"
+              autocomplete="off"
+              [(ngModel)]="servicio.id"
+              placeholder="Id"
+              disabled
+            />
+          </div>
+        </div>
+        <label for="shopid" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Shop Id</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="shopid"
+              autocomplete="off"
+              [(ngModel)]="model.shop.id"
+              placeholder="Shop Id"
+              disabled
+            />
+          </div>
+        </div>
 
-    <label for="name" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >name</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="name"
-        autocomplete="off"
-        [(ngModel)]="model.name"
-        placeholder="name"
-      />
-    </div>
+        <label for="name" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Service name</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="name"
+              autocomplete="off"
+              [(ngModel)]="servicio.name"
+              placeholder="Service name"
+            />
+          </div>
+        </div>
 
-    <label for="description" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >description</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="description"
-        autocomplete="off"
-        [(ngModel)]="model.description"
-        placeholder="description"
-      />
-    </div>
+        <label
+          for="description"
+          class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Description</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="description"
+              autocomplete="off"
+              [(ngModel)]="servicio.description"
+              placeholder="Description"
+            />
+          </div>
+        </div>
 
-    <label for="price" class="col-sm-2 col-form-label text-end mt-2 mb-2"
-      >price</label
-    >
-    <div class="col-sm-10 mt-2 mb-2">
-      <input
-        class="form-control shadow-sm"
-        type="text"
-        name="price"
-        autocomplete="off"
-        [(ngModel)]="model.price"
-        placeholder="price"
-      />
+        <label for="price" class="col-sm-2 col-form-label text-end mt-2 mb-2"
+          >Price</label
+        >
+        <div class="col-4">
+          <div class="col-sm-10 mt-2 mb-2">
+            <input
+              class="form-control shadow-sm"
+              type="text"
+              name="price"
+              autocomplete="off"
+              [(ngModel)]="servicio.price"
+              placeholder="Price"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-outline-success shadow-sm me-2">Update</button>
     </div>
   </div>
-
-  <button class="btn btn-success shadow me-2">Update</button>
-  
 </form>

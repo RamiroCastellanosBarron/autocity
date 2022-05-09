@@ -19,10 +19,6 @@ export class ShopService {
     return this.http.get<Shop>(this.baseUrl + '/' + id);
   }
 
-  // getReviews(id:string){
-  //   return this.http.get('https://localhost:7126/api/Reviews/' + id);
-  // }
-
   postShop(model: any){
     return this.http.post('https://localhost:7126/api/Shops/', model);
   }
@@ -35,5 +31,8 @@ export class ShopService {
     return this.http.put(this.baseUrl + '/' + shop.id, shop);
   }
 
+  getRankedShops() {
+    return this.http.get(this.baseUrl + '/s');
+  }
 
 }

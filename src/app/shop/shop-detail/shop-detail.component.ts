@@ -1,3 +1,4 @@
+import { ReviewService } from './../../services/review.service';
 import { ServiciosService } from './../../services/servicios.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -12,14 +13,30 @@ import { Component, OnInit } from '@angular/core';
 export class ShopDetailComponent implements OnInit {
   model: any = {};
   servicios: any;
-  // reviews: any;
+  reviews: any;
 
-  constructor(private shopService: ShopService, private router: Router, private route: ActivatedRoute, private toastr: ToastrService, private servicioService: ServiciosService) { }
+  constructor(
+    private shopService: ShopService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private servicioService: ServiciosService,
+    private reviewService: ReviewService,
+  ) { }
 
   ngOnInit(): void {
     this.bringShop();
     this.showServices();
-    // this.showShopReviews();
+    this.getReviewsByShopId();
+  }
+
+  getReviewsByShopId() {
+    this.reviewService.getReviewsByShopId(this.route.snapshot.paramMap.get('id')).subscribe(response => {
+      this.reviews = response;
+      console.log(this.reviews);
+    }, error => {
+      console.log(error);
+    })
   }
 
   bringShop() {
@@ -41,14 +58,6 @@ export class ShopDetailComponent implements OnInit {
     })
   }
 
-  // showShopReviews() {
-  //   this.shopService.getReviews(this.route.snapshot.paramMap.get('id')).subscribe(response => {
-  //     this.reviews = response;
-  //     console.log(response);
-  //   }, error => {
-  //     console.log(error);
-  //   })
-  // }
 
   borrar(id: string) {
     this.shopService.deleteShop(id).subscribe(response => {

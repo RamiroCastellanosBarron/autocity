@@ -19,6 +19,10 @@ export class CarService {
     return this.http.get<Car>(this.baseUrl + '/' + id);
   }
 
+  getCarsByCustomerId(id: string) {
+    return this.http.get(this.baseUrl + '/s/' + id);
+  }
+
   postNewCar(model: any) {
     return this.http.post(this.baseUrl, model);
   }

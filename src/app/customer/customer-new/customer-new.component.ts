@@ -1,3 +1,4 @@
+import { CustomerService } from './../../services/customer.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -11,14 +12,18 @@ import { CarService } from 'src/app/services/car.service';
 export class CustomerNewComponent implements OnInit {
   model: any = {};
 
-  constructor(private toastr: ToastrService, private router: Router, private carService: CarService) { }
+  constructor(
+    private toastr: ToastrService,
+    private router: Router,
+    private customerService: CustomerService,
+    ) { }
 
   ngOnInit(): void {
   }
 
   addCustomer() {
-    this.carService.postNewCar(this.model).subscribe(response => {
-      console.log(response);
+    this.customerService.postCustomer(this.model).subscribe(response => {
+      this.model = response;
       this.toastr.success('Customer added successfully!');
       this.router.navigateByUrl('/Customers');
     }, error => {

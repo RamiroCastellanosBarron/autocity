@@ -6,12 +6,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HistorialService {
-  baseUrl = 'https://localhost:7126/api/Historiales/';
+  baseUrl = 'https://localhost:7126/api/Citas';
 
   constructor(private http: HttpClient) { }
 
-  getCarHistory(id: string): Observable<History[]> {
-    return this.http.get<History[]>(this.baseUrl + id);
+  getCitasByCarId(id: string){
+    return this.http.get(this.baseUrl + '/s/' + id);
   }
+
 
 }

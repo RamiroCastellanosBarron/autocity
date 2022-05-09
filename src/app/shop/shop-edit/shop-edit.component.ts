@@ -15,10 +15,21 @@ export class ShopEditComponent implements OnInit {
   shop: Shop = {
     id: 0,
     name: '',
-    address: '',
     rating: 0,
     longitude: 0,
-    latitude: 0
+    latitude: 0,
+    imageUrl: '',
+    telephone: '',
+    webUrl: '',
+    bio: '',
+    email: '',
+    calle: '',
+    numero: '',
+    codigoPostal: 0,
+    colonia: '',
+    municipio: '',
+    estado: '',
+    pais: ''
   };
 
   constructor(private shopService: ShopService, private route: ActivatedRoute, private toastr: ToastrService, private router: Router) { }
@@ -33,10 +44,22 @@ export class ShopEditComponent implements OnInit {
 
       this.shop.id = response.id;
       this.shop.name = response.name;
-      this.shop.address = response.address;
       this.shop.rating = response.rating;
       this.shop.longitude = response.longitude;
       this.shop.latitude = response.latitude;
+      this.shop.imageUrl = response.imageUrl;
+      this.shop.telephone = response.telephone;
+      this.shop.webUrl = response.webUrl;
+      this.shop.bio = response.bio;
+      this.shop.email = response.email;
+      this.shop.calle = response.calle;
+      this.shop.numero = response.numero;
+      this.shop.codigoPostal = response.codigoPostal;
+      this.shop.colonia = response.colonia;
+      this.shop.municipio = response.municipio;
+      this.shop.estado = response.estado;
+      this.shop.pais = response.pais;
+
 
     }, error => {
       console.log(error);
