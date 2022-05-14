@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let cita of model" routerLink="/Events/{{cita.id}}" style="cursor:pointer">
+        <tr *ngFor="let cita of model" routerLink="/Events/{{cita.id}}" style="cursor:pointer" class="text-center">
         <td class="text-center">{{ cita.id }}</td>
         <td>{{ cita.car.customer.name }}</td>
         <td>{{ cita.car.brand }} {{ cita.car.model }}</td>

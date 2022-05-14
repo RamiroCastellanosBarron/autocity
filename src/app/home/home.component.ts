@@ -11,8 +11,8 @@ import * as Mapboxgl from 'mapbox-gl';
 })
 export class HomeComponent implements OnInit {
   model: any;
-  long: number = -100.3864256;
-  lat: number = 25.6498502;
+  long: number = -100.3684954;
+  lat: number = 25.6876847;
 
   map?: Mapboxgl.Map;
 
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [this.long, this.lat],
-      zoom: 16
+      zoom: 15
     })
   }
 

@@ -2,7 +2,7 @@ html, body {
   overflow: hidden !important;
 }
 
-#map {
+/* #map {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -18,5 +18,7 @@ html, body {
   overflow: hidden;
   margin-bottom: 0;
 }
+ */
+
 
 
