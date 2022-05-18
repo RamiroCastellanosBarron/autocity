@@ -2,8 +2,8 @@ import { NgControl, ControlValueAccessor } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit, Self } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CitaUpdate } from 'src/app/models/citatoupdate.model';
-import { CitasService } from 'src/app/services/citas.service';
+import { CitaUpdate } from 'src/app/_models/citatoupdate.model';
+import { CitasService } from 'src/app/_services/citas.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({

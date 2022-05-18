@@ -1,0 +1,70 @@
+<div class="row mb-0 shadow">
+  <div class="col-3 p-0">
+    <div
+      class="card"
+      style="border-top-right-radius: 0; border-bottom-right-radius: 0"
+    >
+      <h4 class="card-header text-center">Best Shops</h4>
+      <div class="card-body p-0 overflow-auto" style="height: 745px">
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let shop of model" class="list-group-item">
+            <div class="row">
+              <div class="col-9">
+                <a routerLink="/Shops/{{ shop.id }}">
+                  <h7 class="card-title">{{ shop.name }}</h7>
+                </a>
+              </div>
+              <div class="col-3 text-end">
+                <p class="card-text text-center">{{ shop.rating }}/5</p>
+              </div>
+            </div>
+            <p class="card-text">
+              {{ shop.calle }} {{ shop.numero }}, {{ shop.codigoPostal }},
+              {{ shop.municipio }}
+            </p>
+            <p class="card-text">
+              <i class="fa fa-phone"></i>
+              {{ shop.telephone }}
+            </p>
+            <div class="row text-start">
+              <div class="col-8">
+                <a
+                  class="link-primary"
+                  href="{{ shop.webUrl }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >{{ shop.webUrl }}</a
+                >
+              </div>
+              <div class="col-4 text-end">
+                <button
+                  (click)="setNewCoords(shop.id)"
+                  class="btn btn-outline-secondary shadow-sm"
+                >
+                  Go
+                  <i class="fa fa-map-marker"></i>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <button routerLink="/Shops" class="btn btn-outline-success shadow-sm">
+          See all shops
+          <i class="fa fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-9 p-0">
+    <div
+      class="card"
+      style="border-top-left-radius: 0; border-bottom-left-radius: 0"
+    >
+      <div class="card-body p-0">
+        <div id="map" style="height: 846px"></div>
+      </div>
+    </div>
+  </div>
+</div>

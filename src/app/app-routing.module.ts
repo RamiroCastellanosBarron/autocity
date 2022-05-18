@@ -1,3 +1,11 @@
+import { ShopGuard } from './_guards/shop.guard';
+import { MapComponent } from './shop/map/map.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
+import { AdminGuard } from './_guards/admin.guard';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { AuthGuard } from './_guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { ReviewNewComponent } from './reviews/review-new/review-new.component';
 import { EventEditComponent } from './event/event-edit/event-edit.component';
@@ -24,35 +32,50 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'Cars', component: CarListComponent },
-  { path: 'Cars/:id', component: CarDetailComponent },
-  { path: 'Car/Edit/:id', component: CarEditComponent },
-  { path: 'Car/New', component: CarNewComponent },
+  { path: '', component: HomeComponent },
+  {
+    path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'Admin', component: AdminPanelComponent, canActivate: [AdminGuard] },
 
-  { path: 'Historial/:id', component: HistorialDetailComponent },
+      { path: 'Members', component: MemberListComponent },
+      { path: 'Members/:username', component: MemberDetailComponent },
+      { path: 'Member/Edit', component: MemberEditComponent },
 
-  { path: 'Shops', component: ShopListComponent },
-  { path: 'Shops/:id', component: ShopDetailComponent },
-  { path: 'Shop/New', component: ShopNewComponent },
-  { path: 'Shop/Edit/:id', component: ShopEditComponent },
+      { path: 'Cars', component: CarListComponent },
+      { path: 'Cars/:id', component: CarDetailComponent },
+      { path: 'Car/Edit/:id', component: CarEditComponent },
+      { path: 'Car/New', component: CarNewComponent },
 
-  { path: 'Service/New/:id', component: ServicioNewComponent },
+      { path: 'Historial/:id', component: HistorialDetailComponent },
 
-  { path: 'Shop/Services/:id', component: ServicioEditComponent },
+      { path: 'Shops', component: ShopListComponent },
+      { path: 'Shops/:id', component: ShopDetailComponent },
+      { path: 'Shop/New', component: ShopNewComponent, canActivate: [ShopGuard, AdminGuard] },
+      { path: 'Shop/Edit/:id', component: ShopEditComponent, canActivate: [ShopGuard, AdminGuard] },
+      { path: 'Map', component: MapComponent },
 
-  { path: 'Event/New', component: EventNewComponent },
-  { path: 'Events', component: EventListComponent },
-  { path: 'Events/:id', component: EventDetailComponent },
-  { path: 'Event/Edit/:id', component: EventEditComponent },
+      { path: 'Service/New/:id', component: ServicioNewComponent, canActivate: [ShopGuard, AdminGuard] },
 
-  {path: 'Customers', component: CustomerListComponent},
-  {path: 'Customer/New', component: CustomerNewComponent},
-  {path: 'Customer/Edit/:id', component: CustomerEditComponent},
-  {path: 'Customer/:id', component: CustomerDetailComponent},
+      { path: 'Shop/Services/:id', component: ServicioEditComponent, canActivate: [ShopGuard, AdminGuard] },
 
-  {path: 'Review/New', component: ReviewNewComponent},
+      { path: 'Event/New', component: EventNewComponent },
+      { path: 'Events', component: EventListComponent },
+      { path: 'Events/:id', component: EventDetailComponent },
+      { path: 'Event/Edit/:id', component: EventEditComponent },
 
-  {path: '', component: HomeComponent},
+      { path: 'Customers', component: CustomerListComponent },
+      { path: 'Customer/New', component: CustomerNewComponent },
+      { path: 'Customer/Edit/:id', component: CustomerEditComponent },
+      { path: 'Customer/:id', component: CustomerDetailComponent },
+
+      { path: 'Review/New', component: ReviewNewComponent },
+    ]
+  },
+
+  { path: '**', component: HomeComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

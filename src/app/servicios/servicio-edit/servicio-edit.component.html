@@ -88,8 +88,8 @@
       </div>
     </div>
     <div class="card-footer">
-      <button class="btn btn-outline-success shadow-sm me-2">Update</button>
-      <button class="btn btn-outline-primary shadow-sm me-2" routerLink="/Event/New">Hire</button>
+      <button *appHasRole='["Admin", "Shop"]' class="btn btn-outline-success shadow-sm me-2">Update</button>
+      <button *appHasRole='["Member"]' class="btn btn-outline-primary shadow-sm me-2" routerLink="/Event/New">Hire</button>
     </div>
   </div>
 </form>

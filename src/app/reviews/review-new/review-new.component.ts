@@ -1,6 +1,6 @@
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { ReviewService } from './../../services/review.service';
+import { ReviewService } from '../../_services/review.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

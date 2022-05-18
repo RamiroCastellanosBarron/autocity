@@ -1,8 +1,8 @@
-import { ShopService } from './../../services/shop.service';
+import { ShopService } from '../../_services/shop.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Shop } from 'src/app/models/shop.model';
+import { Shop } from 'src/app/_models/shop.model';
 
 @Component({
   selector: 'app-shop-edit',

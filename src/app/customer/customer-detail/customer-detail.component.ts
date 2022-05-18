@@ -1,8 +1,8 @@
-import { CustomerService } from './../../services/customer.service';
+import { CustomerService } from '../../_services/customer.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CarService } from 'src/app/services/car.service';
+import { CarService } from 'src/app/_services/car.service';
 
 @Component({
   selector: 'app-customer-detail',

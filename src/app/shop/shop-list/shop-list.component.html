@@ -1,5 +1,5 @@
-<div class="card shadow-sm">
-  <div class="card-header text-center">Available shops</div>
+<div class="card shadow mb-3">
+  <h3 class="card-header text-center">Shops</h3>
   <div class="card-body p-0">
     <table class="table table-striped table-hover mb-0">
       <thead>
@@ -12,19 +12,36 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let shop of model" class="text-center" routerLink="/Shops/{{shop.id}}" style="cursor:pointer">
+        <tr
+          *ngFor="let shop of model"
+          class="text-center"
+          routerLink="/Shops/{{ shop.id }}"
+          style="cursor: pointer"
+        >
           <td class="text-center">{{ shop.id }}</td>
-          <td>{{ shop.name }}</td>
-          <td>{{ shop.calle }} {{shop.numero}}, {{shop.municipio}}, {{shop.estado}}</td>
+          <td>{{ shop.name.substring(0, 50) }}</td>
+          <td>
+            {{ shop.calle }} {{ shop.numero }}, {{ shop.municipio }},
+            {{ shop.estado }}
+          </td>
           <td class="text-center">{{ shop.rating }}</td>
         </tr>
       </tbody>
     </table>
   </div>
   <div class="card-footer">
-    <a routerLink="/Shop/New">
-      <button class="btn btn-outline-success shadow-sm">Add a new shop</button>
+    <a routerLink="/Map">
+      <button type="button" class="btn btn-secondary shadow-sm me-2">
+        Go to Map
+        <i class="fa fa-map"></i>
+      </button>
+    </a>
+
+    <a *appHasRole="['Admin']" routerLink="/Shop/New">
+      <button type="button" class="btn btn-outline-success shadow-sm me-2">
+        Add a new shop
+        <i class="fa fa-plus" style="margin-left: 5px"></i>
+      </button>
     </a>
   </div>
 </div>
-

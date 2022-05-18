@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="model">
   <div class="col-8">
     <div class="card shadow-sm mb-3">
       <div class="card-header text-center">Vehicle's Detail</div>
@@ -111,20 +111,26 @@
       </div>
       <div class="card-footer">
         <a routerLink="/Cars">
-          <button class="btn btn-outline-secondary shadow-sm me-2">Back</button>
+          <button class="btn btn-outline-secondary shadow-sm me-2">
+            <i class="fa fa-arrow-left"></i>
+            Back</button>
         </a>
         <a routerLink="/Car/Edit/{{ model.id }}">
-          <button class="btn btn-outline-info shadow-sm me-2">Edit</button>
+          <button class="btn btn-outline-primary shadow-sm me-2">Edit
+            <i class="fa fa-gear"></i>
+          </button>
         </a>
         <button
           class="btn btn-outline-danger shadow-sm me-2"
           (click)="borrar(model.id)"
         >
           Delete
+          <i class="fa fa-trash"></i>
         </button>
         <a routerLink="/Historial/{{ model.id }}">
           <button class="btn btn-outline-warning me-2 shadow-sm">
             History
+            <i class="fa fa-history"></i>
           </button>
         </a>
       </div>
@@ -249,6 +255,7 @@
         <a routerLink="/Customer/{{model.customer.id}}">
           <button class="btn btn-outline-primary shadow-sm">
             Go to {{model.customer.name}}'s profile
+            <i class="fa fa-arrow-right"></i>
           </button>
         </a>
       </div>
@@ -259,7 +266,7 @@
       <div class="card-header text-center">
         {{ model.brand }} {{ model.model }}, {{ model.year }}
       </div>
-      <img src="{{ model.imageUrl }}" class="card-img-top" />
+      <img src="{{ model.imageUrl || './assets/user.png' }}" class="card-img-top" />
       <div class="card-footer">
         <input
           type="text"
@@ -276,7 +283,7 @@
       <div class="card-header text-center">
         {{ model.customer.name }} {{ model.customer.apellidoPaterno }} {{ model.customer.apellidoMaterno }}
       </div>
-      <img src="{{ model.customer.imageUrl }}" class="card-img-top" />
+      <img src="{{ model.customer.imageUrl || './assets/user.png' }}" class="card-img-top" />
       <div class="card-footer">
         <input
           type="text"

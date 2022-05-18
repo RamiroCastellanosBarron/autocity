@@ -1,7 +1,6 @@
-import { Servicio } from 'src/app/models/servicio.model';
+import { Servicio } from 'src/app/_models/servicio.model';
 import { ToastrService } from 'ngx-toastr';
-import { ServiciosService } from 'src/app/services/servicios.service';
-import { HttpClient } from '@angular/common/http';
+import { ServiciosService } from 'src/app/_services/servicios.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -20,7 +19,8 @@ export class ServicioEditComponent implements OnInit {
     shopId: 0
   };
 
-  constructor(private serviciosService: ServiciosService,
+  constructor(
+    private serviciosService: ServiciosService,
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService) { }

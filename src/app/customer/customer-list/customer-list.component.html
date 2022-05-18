@@ -1,5 +1,5 @@
-<div class="card shadow-sm">
-  <div class="card-header text-center">Customers</div>
+<div class="card shadow">
+  <h3 class="card-header text-center">Customers</h3>
   <div class="card-body p-0">
     <table class="table table-striped table-hover mb-0">
       <thead>
@@ -12,7 +12,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of customers" routerLink="/Customer/{{customer.id}}" style="cursor:pointer">
+        <tr
+          *ngFor="let customer of customers"
+          routerLink="/Customer/{{ customer.id }}"
+          style="cursor: pointer"
+        >
           <td class="text-center">{{ customer.id }}</td>
           <td class="text-center">{{ customer.name }}</td>
           <td class="text-center">{{ customer.apellidoPaterno }}</td>
@@ -22,9 +26,12 @@
       </tbody>
     </table>
   </div>
-  <div class="card-footer">
+  <div class="card-footer" *appHasRole="['Admin']">
     <a routerLink="/Customer/New">
-      <button class="btn btn-outline-success shadow-sm">Add a customer</button>
+      <button class="btn btn-outline-success shadow-sm">
+        Add a customer
+        <i class="fa fa-plus" style="margin-left: 5px"></i>
+      </button>
     </a>
   </div>
 </div>

@@ -1,7 +1,7 @@
 import { ToastrService } from 'ngx-toastr';
-import { CarService } from 'src/app/services/car.service';
+import { CarService } from 'src/app/_services/car.service';
 import { Component, OnInit } from '@angular/core';
-import { Car } from 'src/app/models/car.model';
+import { Car } from 'src/app/_models/car.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -10,9 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./car-detail.component.css']
 })
 export class CarDetailComponent implements OnInit {
-  model: any ={};
+  model: any = {};
 
-  constructor(private carService: CarService, private toastr: ToastrService, private route: ActivatedRoute, private router:Router) { }
+  constructor(private carService: CarService, private toastr: ToastrService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.ShowCar();
@@ -22,18 +22,18 @@ export class CarDetailComponent implements OnInit {
     this.carService.getOneCar(this.route.snapshot.paramMap.get('id')).subscribe(response => {
       console.log(response);
       this.model = response;
-    },error=>{
+    }, error => {
       console.log(error);
       this.toastr.error('An error occurred');
     })
   }
 
-  borrar(id:string){
+  borrar(id: string) {
     this.carService.deleteCar(id).subscribe(response => {
       this.toastr.success('Car deleted successfully');
       console.log(response);
       this.router.navigateByUrl('/Cars');
-    },error=> {
+    }, error => {
       console.log(error);
       this.toastr.error('An error occurred');
     })

@@ -1,8 +1,8 @@
-import { ReviewService } from './../../services/review.service';
-import { ServiciosService } from './../../services/servicios.service';
+import { ReviewService } from '../../_services/review.service';
+import { ServiciosService } from '../../_services/servicios.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ShopService } from './../../services/shop.service';
+import { ShopService } from '../../_services/shop.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { Component, Input, Self } from '@angular/core';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
@@ -10,6 +10,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 export class DateInputComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() maxDate: Date;
+
   bsConfig: Partial<BsDatepickerConfig>;
 
   constructor(@Self() public ngControl: NgControl) {
@@ -17,18 +18,19 @@ export class DateInputComponent implements ControlValueAccessor {
     this.bsConfig = {
       containerClass: 'theme-red',
       dateInputFormat: 'DD MMMM YYYY',
+
     }
   }
 
   writeValue(obj: any): void {
 
   }
+
   registerOnChange(fn: any): void {
 
   }
+
   registerOnTouched(fn: any): void {
 
   }
-
-
 }

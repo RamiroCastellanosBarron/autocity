@@ -1,101 +1,19 @@
-<!-- <div id="map"></div>
-
 <div class="row">
-  <div class="col-4">
-    <div id="tarjeta" class="card shadow" style="height: 900px">
-      <div class="card-header shadow-sm text-center">Best Shops</div>
-      <div class="card-body p-0 overflow-auto">
-        <ul class="list-group list-group-flush">
-          <li *ngFor="let shop of model" class="list-group-item">
-            <div class="row">
-              <div class="col-10">
-                <a routerLink="/Shops/{{ shop.id }}">
-                  <h5 class="card-title">{{ shop.name }}</h5>
-                </a>
-              </div>
-              <div class="col-2 text-end">
-                <p class="card-text text-center">{{ shop.rating }}/5</p>
-              </div>
-            </div>
-            <p class="card-text">
-              {{ shop.calle }} {{ shop.numero }}, {{ shop.codigoPostal }},
-              {{ shop.municipio }}
-            </p>
-            <p class="card-text">{{ shop.telephone }}</p>
-            <div class="row text-end">
-              <div class="col-8">
-                <p class="card-text text-start">{{ shop.webUrl }}</p>
-              </div>
-              <div class="col-4">
-                <button
-                  (click)="setNewCoords(shop.id)"
-                  class="btn btn-outline-secondary shadow-sm"
-                >
-                  Go
-                </button>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="card-footer">
-        <button routerLink="/Shops" class="btn btn-outline-success shadow-sm">
-          See all shops
-        </button>
+  <div class="container mt-5" >
+    <div *ngIf="!registerMode" style="text-align: center;">
+      <h1>Start using the app</h1>
+      <p class="lead">Create an account</p>
+      <div class="text-center">
+        <button (click)="registerToggle()" class="btn btn-outline-success shadow-sm me-2">Sign up</button>
+        <button class="btn btn-outline-primary shadow-sm me-2">Learn more...</button>
       </div>
     </div>
-  </div>
-</div> -->
 
-<div class="row mb-0">
-  <div class="col-3 p-0">
-    <div class="card shadow-sm" style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
-      <div class="card-header text-center">Best Shops</div>
-      <div class="card-body p-0 overflow-auto" style="height: 750px">
-        <ul class="list-group list-group-flush">
-          <li *ngFor="let shop of model" class="list-group-item">
-            <div class="row">
-              <div class="col-10">
-                <a routerLink="/Shops/{{ shop.id }}">
-                  <h5 class="card-title">{{ shop.name }}</h5>
-                </a>
-              </div>
-              <div class="col-2 text-end">
-                <p class="card-text text-center">{{ shop.rating }}/5</p>
-              </div>
-            </div>
-            <p class="card-text">
-              {{ shop.calle }} {{ shop.numero }}, {{ shop.codigoPostal }},
-              {{ shop.municipio }}
-            </p>
-            <p class="card-text">{{ shop.telephone }}</p>
-            <div class="row text-end">
-              <div class="col-8">
-                <p class="card-text text-start">{{ shop.webUrl }}</p>
-              </div>
-              <div class="col-4">
-                <button
-                  (click)="setNewCoords(shop.id)"
-                  class="btn btn-outline-secondary shadow-sm"
-                >
-                  Go
-                </button>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="card-footer">
-        <button routerLink="/Shops" class="btn btn-outline-success shadow-sm">
-          See all shops
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col-9 p-0">
-    <div class="card shadow-sm" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
-      <div class="card-body p-0">
-        <div id="map" style="height: 846px;"></div>
+    <div *ngIf="registerMode" class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+        </div>
       </div>
     </div>
   </div>

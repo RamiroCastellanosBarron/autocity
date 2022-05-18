@@ -310,16 +310,21 @@
   </div>
   <div class="card-footer">
     <a routerLink="/Events">
-      <button class="btn btn-outline-secondary shadow-sm me-2">Back</button>
+      <button class="btn btn-outline-secondary shadow-sm me-2">
+        <i class="fa fa-arrow-left"></i>
+        Back</button>
     </a>
     <a routerLink="/Event/Edit/{{ eventId }}">
-      <button class="btn btn-outline-info shadow-sm me-2">Edit</button>
+      <button class="btn btn-outline-primary shadow-sm me-2">Edit
+        <i class="fa fa-gear"></i>
+      </button>
     </a>
     <button
       class="btn btn-outline-danger shadow-sm me-2"
       (click)="borrar(model.id)"
     >
       Delete
+      <i class="fa fa-trash"></i>
     </button>
   </div>
 </div>

@@ -1,8 +1,8 @@
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CarService } from 'src/app/services/car.service';
+import { CarService } from 'src/app/_services/car.service';
 import { Component, OnInit } from '@angular/core';
-import { Car } from 'src/app/models/car.model';
+import { Car } from 'src/app/_models/car.model';
 
 @Component({
   selector: 'app-car-edit',
@@ -10,7 +10,7 @@ import { Car } from 'src/app/models/car.model';
   styleUrls: ['./car-edit.component.css']
 })
 export class CarEditComponent implements OnInit {
-  model: any ={};
+  model: any = {};
   car: Car = {
     id: 0,
     brand: '',
@@ -22,7 +22,7 @@ export class CarEditComponent implements OnInit {
     imageUrl: ''
   };
 
-  constructor(private carService: CarService, private route: ActivatedRoute, private toastr: ToastrService, private router:Router) { }
+  constructor(private carService: CarService, private route: ActivatedRoute, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.showCar();
@@ -50,7 +50,7 @@ export class CarEditComponent implements OnInit {
       console.log(response);
       this.toastr.success('Car updated');
       this.router.navigateByUrl('/Cars/' + car.id);
-    }, error=>{
+    }, error => {
       console.log(error);
       this.toastr.error('An error occurred');
     })

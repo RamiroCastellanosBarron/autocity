@@ -1,25 +1,162 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light shadow">
   <div class="container">
-    <a class="navbar-brand" routerLink="">busCar</a>
-    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/Shops" routerLinkActive="active">Shops</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/Cars" routerLinkActive="active">Vehicles</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/Events" routerLinkActive="active">Appointments</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/Customers" routerLinkActive="active">Customers</a>
-      </li>
-    </ul>
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-      <input type="search" class="form-control form-control-light"
-      placeholder="Search..."
+    <a class="navbar-brand" routerLink="/">busCar</a>
 
+    <ng-container *ngIf="accountService.currentUser$ | async">
+      <ul class="nav nav-pills me-auto mb-2 mb-md-0 color">
+        <!-- todos -->
+
+        <!-- todos fin -->
+
+        <!-- cliente -->
+        <li *appHasRole="['Member']" class="nav-item">
+          <a class="nav-link" routerLink="/Cars" routerLinkActive="active"
+            >Vehicles</a
+          >
+        </li>
+        <!-- cliente fin -->
+
+        <!-- taller -->
+
+        <!-- taller fin -->
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Shops" routerLinkActive="active"
+            >Shops</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Events" routerLinkActive="active"
+            >Appointments</a
+          >
+        </li>
+        <li *appHasRole="['Admin']" class="nav-item">
+          <a class="nav-link" routerLink="/Customers" routerLinkActive="active"
+            >Customers</a
+          >
+        </li>
+
+        <!-- admin -->
+        <li *appHasRole="['Admin']" class="nav-item">
+          <a routerLink="/Admin" routerLinkActive="active" class="nav-link"
+            >Admin</a
+          >
+        </li>
+        <!-- admin fin -->
+      </ul>
+    </ng-container>
+
+    <form
+      *ngIf="accountService.currentUser$ | async"
+      class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+    >
+      <input
+        type="search"
+        class="form-control"
+        placeholder="Search..."
+      />
+    </form>
+
+    <div
+      class="dropdown"
+      *ngIf="accountService.currentUser$ | async as user"
+      dropdown
+    >
+      <button class="btn btn-secondary dropdown-toggle" dropdownToggle>
+        <i class="fa fa-user me-2"></i>
+        {{ user.username | titlecase }}
+      </button>
+      <div
+        class="dropdown-menu shadow dropdown-menu-end dropdown-menu-dark"
+        *dropdownMenu
       >
+        <a
+          *appHasRole="['Member']"
+          style="cursor: pointer"
+          routerLink="/Members"
+          class="dropdown-item"
+        >
+          <i class="fa fa-eye me-2"></i>
+          View profile</a
+        >
+        <a
+          *appHasRole="['Admin']"
+          style="cursor: pointer"
+          routerLink="/Admin"
+          class="dropdown-item"
+        >
+          <i class="fa fa-gear me-2"></i>
+          Manage users</a
+        >
+        <a
+          *appHasRole="['Shop']"
+          style="cursor: pointer"
+          routerLink="/Members"
+          class="dropdown-item"
+        >
+          <i class="fa fa-eye me-2"></i>
+          View Shop</a
+        >
+        <a
+          *appHasRole="['Member']"
+          style="cursor: pointer"
+          routerLink="/Member/Edit"
+          class="dropdown-item"
+        >
+          <i class="fa fa-gear me-2"></i>
+          Edit profile</a
+        >
+        <a
+          *appHasRole="['Shop']"
+          style="cursor: pointer"
+          routerLink="/Member/Edit"
+          class="dropdown-item"
+        >
+          <i class="fa fa-gear me-2"></i>
+          Edit Shop</a
+        >
+        <div class="dropdown-divider"></div>
+        <a style="cursor: pointer" class="dropdown-item" (click)="logout()">
+          <i class="fa fa-sign-out me-2"></i>
+          Logout</a
+        >
+      </div>
+    </div>
+
+    <form
+      #form="ngForm"
+      *ngIf="(accountService.currentUser$ | async) === null"
+      (submit)="login()"
+      autocomplete="off"
+      class="form-inline d-flex mt-2 mt-md-0"
+    >
+      <div class="input-group shadow-sm me-2">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="model.username"
+          placeholder="Username"
+        />
+      </div>
+
+      <input
+        type="password"
+        data-toggle="password"
+        class="form-control me-2 shadow-sm"
+        name="password"
+        [(ngModel)]="model.password"
+        placeholder="Password"
+      />
+
+      <button
+        class="btn btn-outline-success shadow-sm my-2 my-sm-0 shadow-sm"
+        type="submit"
+      >
+        Login
+      </button>
     </form>
   </div>
 </nav>

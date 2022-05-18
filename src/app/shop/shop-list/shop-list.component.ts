@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { ShopService } from './../../services/shop.service';
+import { ShopService } from '../../_services/shop.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

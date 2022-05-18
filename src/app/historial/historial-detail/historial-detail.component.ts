@@ -1,10 +1,10 @@
-import { CarService } from './../../services/car.service';
+import { CarService } from '../../_services/car.service';
 import { ToastrService } from 'ngx-toastr';
-import { HistorialService } from './../../services/historial.service';
+import { HistorialService } from '../../_services/historial.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { History } from 'src/app/models/history.model';
-import { Car } from 'src/app/models/car.model';
+import { History } from 'src/app/_models/history.model';
+import { Car } from 'src/app/_models/car.model';
 
 @Component({
   selector: 'app-historial-detail',
@@ -46,7 +46,7 @@ export class HistorialDetailComponent implements OnInit {
   }
 
   goBack(id: string){
-    
+
   }
 
 

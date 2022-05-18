@@ -1,0 +1,71 @@
+<div class="row" *ngIf="member">
+  <div class="col-4">
+    <h1>Your profile</h1>
+  </div>
+  <div class="col-8">
+    <div class="alert alert-info shadow-sm" *ngIf="editForm.dirty">
+      <strong>Information: </strong> You have made changes. Any unsaved changes
+      will be lost
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <img
+        src="{{ member.photoUrl || './assets/user.png' }}"
+        alt="{{ member.knownAs }}"
+        class="card-img-top img-thumbnail"
+      />
+      <div class="card-body">
+        <div>
+          <strong>Location:</strong>
+          <p>{{ member.municipio }}, {{ member.pais }}</p>
+        </div>
+        <div>
+          <strong>Age:</strong>
+          <p>
+            {{ member.age }}
+          </p>
+        </div>
+      </div>
+      <div class="card-footer d-grid gap-2">
+        <button
+          [disabled]="!editForm.dirty"
+          form="editForm"
+          class="btn btn-success shadow-sm"
+        >
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-8">
+    <tabset class="member-tabset">
+      <tab heading="About {{ member.knownAs }}">
+        <form autocomplete="off" id="editForm" #editForm="ngForm" (ngSubmit)="updateMember()">
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="estado"
+            [(ngModel)]="member.estado"
+          />
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="pais"
+            [(ngModel)]="member.pais"
+          />
+          <input
+            class="form-control shadow-sm"
+            type="text"
+            name="municipio"
+            [(ngModel)]="member.municipio"
+          />
+        </form>
+      </tab>
+      <tab heading="Edit Photos">
+        <p>editor de fotos</p>
+      </tab>
+    </tabset>
+  </div>
+</div>

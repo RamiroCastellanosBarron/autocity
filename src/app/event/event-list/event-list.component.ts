@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { CitasService } from './../../services/citas.service';
+import { CitasService } from '../../_services/citas.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

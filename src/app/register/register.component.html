@@ -1,0 +1,80 @@
+<div class="card shadow-sm">
+  <div class="card-header text-center">
+    <p class="lead" style="margin-bottom: -5px;">Create an account</p>
+  </div>
+<div class="card-body bg-light">
+  <form [formGroup]="registerForm" autocomplete="off" (submit)="registerForm.valid && register()">
+
+    <div class="form-check">
+      <input type="radio" value="male" class="form-check-input" formControlName="gender">
+      <label class="form-check-label">Male</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" value="female" class="form-check-input" formControlName="gender">
+      <label class="form-check-label">Female</label>
+    </div>
+
+    <app-text-input
+      [formControl]="registerForm.controls['username']"
+      [label]="'Username'"
+    >
+    </app-text-input>
+    <app-date-input
+      [formControl]="registerForm.controls['dateOfBirth']"
+      [label]="'Date Of Birth'"
+      [maxDate]="maxDate"
+    ></app-date-input>
+    <app-text-input
+      [formControl]="registerForm.controls['knownAs']"
+      [label]="'Known As'"
+    ></app-text-input>
+    <app-text-input
+      [formControl]="registerForm.controls['municipio']"
+      [label]="'Municipio'"
+    ></app-text-input>
+    <app-text-input
+      [formControl]="registerForm.controls['estado']"
+      [label]="'Estado'"
+    ></app-text-input>
+    <app-text-input
+      [formControl]="registerForm.controls['pais']"
+      [label]="'Pais'"
+    ></app-text-input>
+    <app-text-input
+      [formControl]="registerForm.controls['password']"
+      [label]="'Password'"
+      [type]="'password'"
+    ></app-text-input>
+    <app-text-input
+      [formControl]="registerForm.controls['confirmPassword']"
+      [label]="'Confirm password'"
+      [type]="'password'"
+    ></app-text-input>
+
+    <div class="row" *ngIf="validationErrors.length > 0">
+      <ul class="text-danger">
+        <li *ngFor="let error of validationErrors">
+          {{error}}
+        </li>
+      </ul>
+    </div>
+
+    <div class="form-group text-center mt-4">
+      <button
+        class="btn btn-secondary shadow-sm me-2 mr-2"
+        type="button"
+        (click)="cancel()"
+      >
+      <i class="fa fa-arrow-left"></i>
+        Cancel
+      </button>
+      <button [disabled]="!registerForm.valid" class="btn btn-success shadow-sm me-2 mr-2" type="submit">
+        Register
+      </button>
+
+    </div>
+  </form>
+
+
+</div>
+</div>

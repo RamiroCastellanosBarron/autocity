@@ -1,7 +1,8 @@
 import { environment } from './../../environments/environment';
-import { ShopService } from 'src/app/services/shop.service';
+import { ShopService } from 'src/app/_services/shop.service';
 import { Component, OnInit } from '@angular/core';
 import * as Mapboxgl from 'mapbox-gl';
+import { AccountService } from '../_services/account.service';
 
 
 @Component({
@@ -10,51 +11,21 @@ import * as Mapboxgl from 'mapbox-gl';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  model: any;
-  long: number = -100.3684954;
-  lat: number = 25.6876847;
-
-  map?: Mapboxgl.Map;
+  registerMode = false;
 
   constructor(
-    private ShopService: ShopService,
 
   ) { }
 
   ngOnInit(): void {
-    this.showMap();
-    this.getRankedShops();
   }
 
-  showMap(){
-    (Mapboxgl as any).accessToken = environment.mapboxKey;
-    this.map = new Mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [this.long, this.lat],
-      zoom: 15
-    })
+  registerToggle(){
+    this.registerMode = !this.registerMode;
   }
 
-  setNewCoords(id: number){
-    this.model.forEach(shop => {
-      console.log(shop);
-      if(shop.id == id){
-        this.long = shop.longitude;
-        this.lat = shop.latitude;
-        this.showMap();
-      }
-    });
-
-  }
-
-  getRankedShops() {
-    this.ShopService.getRankedShops().subscribe(response => {
-      this.model = response;
-      console.log(response);
-    }, error => {
-      console.log(error);
-    })
+  cancelRegisterMode(event: boolean){
+    this.registerMode = event;
   }
 
 }
